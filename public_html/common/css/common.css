@@ -1,0 +1,167 @@
+.hide-as-menu {
+    display: none !important;
+}
+.show-as-menu {
+    display: block !important;
+}
+#undoButton {
+    position: fixed;
+    top: -100px;
+    width: 100%;
+    text-align: center;
+    color: #ccc0b4;
+    z-index: 5;
+    display: none;
+    overflow: hidden;
+}
+/* Your app custom files in this file */
+.view-left:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    width: 1px;
+    height: 1000%;
+    background-color: #333333;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+}
+html.ios-gt-6.pixel-ratio-2 .view-left:before {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+html.ios-gt-6.pixel-ratio-3 .view-left:before {
+    -webkit-transform: scaleY(0.33);
+    transform: scaleY(0.33);
+}
+.statusbar-overlay {
+    background: #131313;
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.statusbar-overlay .fa-circle-o {
+    padding-left: 4px;
+    height: 12px;
+    font-size: 8px;
+}
+.statusbar-overlay .fa-circle {
+    padding-left: 2px;
+    height: 12px;
+    font-size: 8px;
+}
+.statusbar-overlay .fa-plug {
+    padding-right: 4px;
+}
+.statusbar-overlay .fa-gamepad {
+    padding-right: 2px;
+}
+.statusbar-overlay .fa-fire {
+    padding-right: 2px;
+}
+/* This will fix flicker navbar in left panel view */
+.panel-left .page-content {
+    padding: 0;
+}
+.panel-left .page {
+    margin-top: 44px;
+    padding-bottom: 44px;
+}
+.panel-left .navbar {
+    position: relative;
+    margin-bottom: -44px;
+}
+/* Because we have panels-overlay inside of .views we need to fix its open position for right panel */
+body.with-panel-right-reveal .panel-overlay {
+    margin-left: 0;
+}
+/* iPads (landscape) ----------- */
+@media (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    body .panel.panel-left.panel-cover {
+        left: 0;
+        width: 300px;
+        display: block;
+    }
+    body.with-panel-left-cover .panel-left {
+        -webkit-transform: translate3d(0px, 0, 0);
+        -ms-transform: translate3d(0px, 0, 0);
+        transform: translate3d(0px, 0, 0);
+    }
+    .view-main {
+        float: right;
+        width: -webkit-calc(100% - 300px);
+        width: -moz-calc(100% - 300px);
+        width: -ms-calc(100% - 300px);
+        width: calc(100% - 300px);
+    }
+    /* Let's hide panel-opener when left panel is visible */
+    .view-main .navbar .open-panel {
+        display: none;
+    }
+    .hide-as-menu {
+        display: block !important;
+    }
+    .show-as-menu {
+        display: none !important;
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    .panel.panel-left.panel-cover {
+        width: 300px;
+        left: -300px;
+    }
+    body.with-panel-left-cover .panel-left {
+        -webkit-transform: translate3d(300px, 0, 0);
+        -ms-transform: translate3d(300px, 0, 0);
+        transform: translate3d(300px, 0, 0);
+    }
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    font-family: 'capture_itregular', sans-serif;
+}
+.navbar .center.big {
+    font-size: 38px;
+}
+.view-main .page-content {
+    overflow: hidden;
+}
+.view-left .list-block {
+    margin: 24px 0;
+}
+.view-left .content-block-title {
+    margin: 24px 15px 10px;
+}
+.view-left .content-block-title + .list-block, .content-block-title + .content-block {
+    margin-top: 10px;
+}
+.card-content-inner.score {
+    text-align: center;
+    font-size: 48px;
+}
+.item-input {
+    text-align: right;
+}
+.label-switch input[type="checkbox"]:checked + .checkbox {
+    background: #ff9500;
+}
+.modal {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+html.with-statusbar-overlay body .panel-left {
+    padding-top: 0 !important;
+}
